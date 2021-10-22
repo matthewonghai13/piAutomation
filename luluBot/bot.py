@@ -21,11 +21,17 @@ from termcolor import colored
 from sys import platform
 
 def main():
-    chrome_options = Options()
+    options = Options()
     print(platform)
+
     # TODO: fix not working in headless
-    # chrome_options.add_argument("--headless")
-    driver = webdriver.Chrome(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install(), options=chrome_options)
+    # options.add_argument("--headless")
+
+    if platform == "linux":
+        driver = webdriver.Chrome(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install(), options=options)
+    else:
+        driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+    
     driver.get("https://shop.lululemon.com/p/men-shorts/Pace-Breaker-Short-5-Lined/_/prod10080318?color=0001&sz=XS")
     # driver.get("https://shop.lululemon.com/p/men-shorts/Pace-Breaker-Short-5-Lined/_/prod10080318?color=0001&sz=M")
     sleep(10)
