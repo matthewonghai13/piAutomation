@@ -15,6 +15,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.utils import ChromeType
+import chromedriver_binary  # Adds chromedriver binary to path
 from faker import Faker
 from random import randrange
 from termcolor import colored
@@ -28,9 +29,9 @@ def main():
     # options.add_argument("--headless")
 
     if platform == "linux":
-        driver = webdriver.Chrome(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install(), options=options)
+        driver = webdriver.Chrome()
     else:
-        driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+        driver = webdriver.Chrome(options=options)
     
     driver.get("https://shop.lululemon.com/p/men-shorts/Pace-Breaker-Short-5-Lined/_/prod10080318?color=0001&sz=XS")
     # driver.get("https://shop.lululemon.com/p/men-shorts/Pace-Breaker-Short-5-Lined/_/prod10080318?color=0001&sz=M")
