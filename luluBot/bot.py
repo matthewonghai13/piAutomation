@@ -29,7 +29,7 @@ def main():
     options.add_argument('--no-sandbox')
 
     if platform == "linux":
-        driver = webdriver.Chrome()
+        driver = webdriver.Chrome(options=options)
     else:
         import chromedriver_binary  # Adds chromedriver binary to path
         driver = webdriver.Chrome(options=options)
