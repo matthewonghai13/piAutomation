@@ -26,6 +26,7 @@ def main():
 
     # TODO: fix not working in headless
     # options.add_argument("--headless")
+    options.add_argument('--no-sandbox')
 
     if platform == "linux":
         driver = webdriver.Chrome()
