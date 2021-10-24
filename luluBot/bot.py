@@ -1,5 +1,5 @@
 import time
-import platform
+from sys import platform
 from time import sleep
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
